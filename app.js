@@ -7,12 +7,12 @@ switch (comando) {
     case 'buscar':
         break;
     case 'mostrar':
-        busc(argv.pais, argv.anio, argv.archivo).catch(e => {
+        busc(argv.pais, argv.anio).catch(e => {
             console.log(e);
         });
         break;
     case 'guardar':
-        crear(argv.pais, argv.anio, argv.archivo)
+        crear(argv.pais, argv.anio)
             .then(mensaje => {
                 console.log(mensaje);
             }).catch(e => {
