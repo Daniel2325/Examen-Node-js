@@ -8,9 +8,13 @@ const datos = [];
 let busc = (pais = 'ECU', anio = 1960, path = './datos.csv') => {
     return new Promise((resolve, reject) => {
         console.log("-----Estos son los datos-----".red)
+            //Leemos el csv y guardamos datos en la variable datos
         fs.createReadStream(path)
             .pipe(csv({}))
-            .on('data', (data) => datos.push(data))
+            //Añadimos a la variable datos a travez del push
+            .on('data', (data) => {
+                datos.push(data);
+            })
             .on('end', () => {
                 //Bucle para comparar datos ingresados con originales
                 for (let i = 0; i < datos.length; i++) {
