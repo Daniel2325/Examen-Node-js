@@ -30,22 +30,22 @@ let busc = (pais = 'ECU', anio = 1960, path = './datos.csv') => {
 
     });
 }
-
+let datosFin = "";
 let crear = (pais = 'ECU', anio = 1960, path = './datos.csv') => {
     return new Promise((resolve, reject) => {
-        let datosFin = "";
+
         fs.createReadStream(path)
             .pipe(csv({}))
             .on('data', (data) => datos.push(data))
             .on('end', () => {
                 for (let i = 0; i < datos.length; i++) {
-                    if (datos[i], ['Country Code'] === pais) {
+                    if (datos[i]['Country Code'] === pais) {
                         data = datos[i];
                         datosFin += `Datos: ${data['Indicator Name']} \n`;
-                        datosFin += `Pais: ${data['"Country Name"']} \n`;
+                        datosFin += `Pais: ${data["Country Code"]} \n`;
                         datosFin += `Año: ${anio} \n`;
                         datosFin += `Valor: ${data[anio]} \n`;
-                        fs.writeFile(`./resultados/${pais}-${anio}.txt`, datosfin, (err) => {
+                        fs.writeFile(`./resultados/${pais}-${anio}.txt`, datosFin, (err) => {
                             if (err)
                                 reject(err);
                             resolve(`Si se guardo :)/${pais}-${anio}.txt`);

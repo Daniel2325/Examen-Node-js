@@ -1,0 +1,4 @@
+Datos: Personas que usan Internet (% de la población) 
+Pais: ECU 
+Año: 2004 
+Valor: 4.834442638 
