@@ -14,17 +14,23 @@ const archivo = {
     alias: 'f',
     desc: 'Path del archivo CSV'
 }
+const help = {
+    alias: 'h',
+    desc: 'Genera un archivo con el resultado de la búsqueda.'
+}
 
 const argv = require('yargs')
     .command('mostrar', 'Muestra resultado de la busqueda', {
         pais,
         anio,
-        archivo
+        archivo,
+        help
     })
     .command('guardar', 'Guarda el resultado en un archivo', {
         pais,
         anio,
-        archivo
+        archivo,
+        help
     })
     .argv;
 
