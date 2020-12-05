@@ -20,9 +20,9 @@ let busc = (pais = 'ECU', anio = 1960, path = './datos.csv') => {
                 for (let i = 0; i < datos.length; i++) {
                     if (datos[i]['Country Code'] === pais) {
                         data = datos[i];
-                        console.log(`Datos: ${data['Indicator Name']}`.blue);
-                        console.log(`Pais: ${data['"Country Name"']}`.brown);
-                        console.log(`Año: ${anio}`.orange);
+                        console.log(`Datos: ${data["Indicator Name"]}`.blue);
+                        console.log(`Pais: ${data["Country Code"]}`);
+                        console.log(`Año: ${anio}`);
                         console.log(`Valor: ${data[anio]}`.green);
                     }
                 }
